@@ -14,4 +14,4 @@ getProductById recibe como parámetro el id del producto y arroja un objeto con 
 
 deleteProduct recibe como parámetro el id del producto y elimina el mismo del archivo, en caso de no coincidir arroja: “Not found”. Si tiene éxito arroja el mensaje: “deleteProduct: done”. Si da error arroja el mensaje: “deleteProduct: error”
 
-TEST: Ejecutar el script.js.
+TEST: FOR VIEW IN CONSOLE TYPE IN TERMINAL: node script.js
