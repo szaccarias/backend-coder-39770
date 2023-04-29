@@ -41,19 +41,31 @@ class ProductManager {
             return 'error: addProduct error'
         }
     }
+    
     getProducts() {
-        console.log(this.products)
-        return this.products
+        try {
+            if (this.products.length === 0) {
+                console.log('Not found')
+                return this.products
+            }
+            return this.products
+        }
+        catch (err) {
+            console.log('getProduct: error')
+            return 'getProduct: error'
+        }
     }
 
-    getProductById(product_id) {
-        let one = this.products.find(each=> each.id === product_id)
-        if (one) {
-            console.log(one)
-            return one
+    getProductById(id) {
+        try {
+            let product = this.products.find(p => p.id === id)
+            product = product ?? 'Not Found'
+            return product
         }
-        console.log('not found')
-        return null
+        catch (err) {
+            console.log('getProductById: error')
+            return 'getProductById: error'
+        }
     }
     
     async updateProduct(id,data) {        
