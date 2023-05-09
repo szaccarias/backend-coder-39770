@@ -21,10 +21,10 @@ async function p_manager() {
 
 async function c_manager() {
     let manager = new CartManager('./data/carts.json')
-    await manager.addCart([{id:2, quantity:3}, {id:5, quantity:1}])
-    await manager.addCart([{id:1, quantity:6}, {id:3, quantity:4}])
-    await manager.addCart([{id:8, quantity:4}, {id:5, quantity:1}])
-    await manager.addCart([{id:9, quantity:6}, {id:7, quantity:2}])
+    await manager.addCart([{id:2, units:3}, {id:5, units:1}])
+    await manager.addCart([{id:1, units:6}, {id:3, units:4}])
+    await manager.addCart([{id:8, units:4}, {id:5, units:1}])
+    await manager.addCart([{id:9, units:6}, {id:7, units:2}])
     console.log(manager.getCartById(2))
     await manager.getCarts()
 }

@@ -35,7 +35,7 @@ class ProductManager {
             let products_json = JSON.stringify(this.products, null, 2)
             await fs.promises.writeFile(this.path, products_json)
             console.log('product id: ' + product.id)
-            return 'product id: ' + product.id
+            return product
         }
         catch (err) {
             console.log('addProduct: error')
@@ -43,7 +43,7 @@ class ProductManager {
         }
     }
 
-    getProducts() {
+    async getProducts() {
         try {
             if (this.products.length === 0) {
                 console.log('Not found')
@@ -61,7 +61,7 @@ class ProductManager {
     getProductById(id) {
         try {
             let product = this.products.find(p => p.id === id)
-            product = product ?? 'Not Found'
+            product = product ?? null   
             return product
         }
         catch (err) {
@@ -73,8 +73,9 @@ class ProductManager {
 
     async updateProduct(id, data) {
         try {
+            console.log("Hello")
             let product = this.getProductById(id)
-            if (product === 'Not Found') {
+            if (!product) {
                 console.log(product)
                 return product
             }
@@ -84,7 +85,7 @@ class ProductManager {
             let data_json = JSON.stringify(this.products, null, 2)
             await fs.promises.writeFile(this.path, data_json)
             console.log('updateProduct: done')
-            return 'updateProduct: done'
+            return product
         }
         catch (err) {
             console.log(err)
