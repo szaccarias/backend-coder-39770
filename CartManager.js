@@ -1,6 +1,6 @@
 import fs from 'fs'
 import ProductManager from './ProductManager.js'
-let p_manager = new ProductManager('./products.json')
+let p_manager = new ProductManager('./data/products.json')
 
 class CartManager {
 
